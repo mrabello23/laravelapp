@@ -14,4 +14,10 @@ class Post extends Model
 
     // Timestamps
     public $timestamps = true; // true: grava created_at e updated_at
+
+    // Models relationship (child table with foreign key (Posts) point to mother with primary key(User))
+    public function user()
+    {
+    	return $this->belongsTo('App\User');
+    }
 }

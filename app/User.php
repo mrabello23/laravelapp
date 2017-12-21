@@ -26,4 +26,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    // Models relationship (mother table with primary key (User) point to child with foreign key (Posts))
+    public function posts()
+    {
+        return $this->hasMany('App\Post');
+    }
 }
