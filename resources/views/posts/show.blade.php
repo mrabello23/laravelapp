@@ -5,6 +5,14 @@
         <a href="/posts" class="btn btn-default btn-sm">Go Back</a>
 
         <h1>{{ $post->title }}</h1>
+
+        @if(empty($post->cover_image))
+            <img src="/storage/cover_images/noimage.png" alt="" width="100%" />
+        @else
+            <img src="/storage/cover_images/{{ $post->cover_image }}" alt="" width="100%" />
+        @endif
+        <br /><br />
+
         <div>
             {{-- sintax used to parse HTML --}}
             {!! $post->body !!}

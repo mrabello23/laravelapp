@@ -1,0 +1,46 @@
+Laravel Tips
+
+Config:
+- Instalação via composer: composer create-project laravel/laravel appname
+- Adicionar "virtual host" apontando para link da aplicação até a pasta public/
+- Adicionar usuário e senha do BD no arquivo ".env"
+
+
+Estrutura:
+- Models na pasta app/ (raiz ou pasta model)
+- Controllers na pasta app/Http/Controllers/
+- Views na pasta resources/views/ (laravel usa template BLADE)
+- Rotas na pasta routes/web.php
+- Providers na pasta app/Providers/
+- Middlewares na pasta app/Http/Middleware/
+- JS e CSS na pasta resources/assets/ (arquivos compilados em public/css/ ou public/js/)
+
+
+Dicas:
+- Usar "artisan" para criação dinâmica de Controllers, Models e Migrations (tabelas)
+- Usar Controller para renderizar templates (padrão rendereiza templates no arquivo de rotas)
+- Criar uma rota para cada pagina do sistema, dizendo qual Controller será utilizado para renderizar o Template
+- Para enviar conteudo para os Templates através do Controller, usar "view('caminhoDoTemplate')->with($arrayDeDados)"
+- Instalar nodeJS e executar comando "npm install" na pasta raiz do projeto para instalar dependencias relacionadas a css e libs js
+- Criar BD e setar as configs no arquivo ".env" depois usar o Migrate para criar tabelas
+- Usar "Tinker" para inserir dados nas tabelas via terminal
+- Usar rota de Resources para mapear todos os metodos do Controller
+- Importar o Model para o Controller e usar a camada Eloquent para lidar com o BD
+- Postar formularios para o Controller e metodo (ex: NomeController@metodo)
+- Passar parametros para o Controller pelo action do formulario
+- Relacionamento entre Models garantem uso de campos de todas as tabelas envolvidas
+- Relacionamento de Models: hasMany('Namespace\Da\Model') ou hasOne('Namespace\Da\Model') na Model da tabela com chave primaria e belongsTo('Namespace\Da\Model') na Model da tabela com a chave estrangeira
+
+
+Comandos:
+- Controller: php artisan make:controller NomeDoController
+- Controller e Resources: php artisan make:controller NomeDoController --resource
+- Model: php artisan make:model NomeDaModel
+- Model e Migration: php artisan make:model NomeDaModel -m
+- Criar arquivo de Migration: php artisan make:migration NomeDoArquivo
+- Rollback Migration: php artisan migration rollback
+- Executar Migration (Criação e atualização de tabelas): php artisan migrate
+- Tinker: php artisan tinker
+- Mostrar Rotas: php artisan route:list
+- Ativar Autenticação: php artisan make:auth
+- Criar repositório com link simbolico para upload e carregamento de img: php artisan storage:link
